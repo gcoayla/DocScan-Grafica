@@ -1,13 +1,110 @@
-body {
+/* Neutralidad */
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+}
+/* Colors */
+/* 
+background: #F0F0EB
+text-dark: #8B9386
+text-important: #FFE849
+
+*/
+/* General */
+
+h1 {
+  width: 100%;
+  text-align: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Wrapper */
+.general-content {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f0f0eb;
+}
+
+/* Upload Edit */
+.upload-edit-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+/* Upload Button */
+.button {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-label {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  height: 100px;
+  background-color: #ffe849;
+  border-radius: 40px;
+  border: 2px solid #8b9386;
+}
+.button-label input {
+  display: none;
+}
+.button-label h2 {
+  width: 100%;
+  text-align: center;
+}
+.button-label:hover {
+  cursor: pointer;
+}
+
+/* Points Area */
+
+.points-area-wrapper {
+  width: 60%;
+  height: 100%;
+  border-left: 2px solid #8b9386;
+  border-right: 2px solid #8b9386;
+}
+.points-area-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.points-area-image-tittle {
+  height: 50px;
+  border-bottom: 2px solid #8b9386;
+}
+.points-area-image {
+  position: relative;
+  margin-top: 10%;
+  height: calc(80% - 62px);
+  width: 80%;
+  margin-left: 10%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* Point */
+.point {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.point::after {
+  content: "";
+  width: 3px;
+  height: 3px;
+  background-color: red;
+  border-radius: 50%;
+}
+.point:hover {
+  cursor: pointer;
 }
