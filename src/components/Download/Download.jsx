@@ -5,7 +5,6 @@ function useButton(image){
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(false)
     const [newImage, setNewImage] = useState(null)
-
     
 
     const postImage = useCallback( async () => {
@@ -13,7 +12,7 @@ function useButton(image){
         
             const {data} = await axios.post('http://localhost:8000/image',{
                 image: image,
-                points: [[0,0],[0,100],[100,0],[100,100]]
+                points: [[200,0],[0,2000],[2000,0],[2000,2000]]
             })
             return data
         }
@@ -21,8 +20,8 @@ function useButton(image){
         setError(false)
         const data = await getImage()
         var imagen = new Image()
-        imagen.src = `data:image/jpg:base64,${data.image1.img}`
-        document.body.appendChild(image);
+        imagen.src = `data:image/jpeg;base64,${data.image1.img}`
+        console.log(data.image1.img)
         setNewImage(imagen)
         setLoading(false)
     },[image])
@@ -44,12 +43,12 @@ function useButton(image){
 const Download = ({image}) => {
 
     const {loading, error, newImage, postImage} = useButton(image)
-
+    console.log(newImage)
     return (
         <>
             {<h1>Cargando</h1> && loading}
             {<h2>Error</h2> && error}
-            {<div>Imagen</div>}
+            {<div className='resultante' style = {{backgroundImage: `url(${newImage?newImage.src: ''})`}}></div>}
         </>
     )
 }
