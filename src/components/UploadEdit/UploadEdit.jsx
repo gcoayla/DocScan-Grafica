@@ -1,11 +1,10 @@
-import React, {useState} from 'react'
+import React from 'react'
 import PointsArea from './PointsArea'
 import SendButton from './SendButton'
 import UploadButton from './UploadButton'
 
-const UploadEdit = () => {
+const UploadEdit = ({setUploadMode,image,setImage}) => {
 
-    const [image, setImage] = useState(null)
     const backImage = image ?  URL.createObjectURL(image) : ''
 
     const setImageFunction = (event) => {
@@ -16,7 +15,7 @@ const UploadEdit = () => {
         <div className='upload-edit-wrapper'>
             <UploadButton setImageFunc={setImageFunction}/>
             <PointsArea image={image} backImage={backImage}/>
-            <SendButton/>
+            <SendButton setUploadMode={setUploadMode}/>
         </div>
     )
 }
